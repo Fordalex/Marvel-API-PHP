@@ -4,7 +4,7 @@
             <div class="input-group mb-3">
                 <input type="text" class="form-control" name="search" placeholder="Hulk, Thor, Spider-Man">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2" name="page" value="character">Button</button>
+                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2" name="page" value="character">Search</button>
                 </div>
             </div>
         </form>
@@ -49,17 +49,50 @@
 <p>Seach Result: <?php echo $apiCharacters->data->count; ?></p>
 
 <div class="row m-0 p-0">
+    <div class="col-12 col-md-6 col-lg-3">
+        <h6 class="text-secondary">Comic</h6>
+        <?php 
+            $title = $apiComic->data->results[0]->title;
+            $imageUrl = $apiComic->data->results[0]->thumbnail->path . "." . $apiComic->data->results[0]->thumbnail->extension;
+            $issueNumber = $apiComic->data->results[0]->issueNumber;
+            $modified = $apiComic->data->results[0]->modified;
+            $description = $apiComic->data->results[0]->description;
+
+            echo "<h2>$title</h2>";
+            echo "<p class='text-secondary m-0'>Date: $modified</p>";
+            echo "<p class='text-secondary m-0'>Issue No. $issueNumber</p>";
+            echo "<p class='m-0'>$description</p>";
+            echo "<img src='$imageUrl'>";
+
+            echo "<button>All Comics</button>";
+        ?>
+    </div>
+</div>
+    
+
+
+
+
+
+
+
+
+
+<!-- 
+<div class="row m-0 p-0">
     <div class="col-12">
         <h4>Comics</h4>
     </div>
         <?php 
-            for ($i = 0; $i < 6; $i++) {
-                echo "<div class='col-12 col-md-6 col-lg-4'>";
-                echo "<div class='comic-wrapper'>";
-                echo $apiCharacters->data->results[0]->comics->items[$i]->name;
-                echo "</div>";
-                echo "</div>";
-            }   
+            // for ($i = 0; $i < 6; $i++) {
+            //     $imageUrl = $apiCharacters->data->results[0]->comics->items[0]->resourceURI;
+            //     echo "<div class='col-12 col-md-6 col-lg-4'>";
+            //     echo "<div class='comic-wrapper'>";
+            //     echo $apiCharacters->data->results[0]->comics->items[$i]->name;
+            //     echo "<img src='$imageUrl'>";
+            //     echo "</div>";
+            //     echo "</div>";
+            // }   
         ?>
     </div>
 </div>
@@ -69,13 +102,13 @@
         <h4>Stories</h4>
     </div>
         <?php 
-            for ($i = 0; $i < 6; $i++) {
-                echo "<div class='col-12 col-md-6 col-lg-4'>";
-                echo "<div class='comic-wrapper'>";
-                echo $apiCharacters->data->results[0]->stories->items[$i]->name;
-                echo "</div>";
-                echo "</div>";
-            }   
+            // for ($i = 0; $i < 6; $i++) {
+            //     echo "<div class='col-12 col-md-6 col-lg-4'>";
+            //     echo "<div class='comic-wrapper'>";
+            //     echo $apiCharacters->data->results[0]->stories->items[$i]->name;
+            //     echo "</div>";
+            //     echo "</div>";
+            // }   
         ?>
     </div>
 </div>
@@ -85,13 +118,13 @@
         <h4>Events</h4>
     </div>
         <?php 
-            for ($i = 0; $i < 6; $i++) {
-                echo "<div class='col-12 col-md-6 col-lg-4'>";
-                echo "<div class='comic-wrapper'>";
-                echo $apiCharacters->data->results[0]->events->items[$i]->name;
-                echo "</div>";
-                echo "</div>";
-            }   
+            // for ($i = 0; $i < 6; $i++) {
+            //     echo "<div class='col-12 col-md-6 col-lg-4'>";
+            //     echo "<div class='comic-wrapper'>";
+            //     echo $apiCharacters->data->results[0]->events->items[$i]->name;
+            //     echo "</div>";
+            //     echo "</div>";
+            // }   
         ?>
     </div>
 </div>
@@ -101,13 +134,13 @@
         <h4>Series</h4>
     </div>
         <?php 
-            for ($i = 0; $i < 6; $i++) {
-                echo "<div class='col-12 col-md-6 col-lg-4'>";
-                echo "<div class='comic-wrapper'>";
-                echo $apiCharacters->data->results[0]->series->items[$i]->name;
-                echo "</div>";
-                echo "</div>";
-            }   
+            // for ($i = 0; $i < 6; $i++) {
+            //     echo "<div class='col-12 col-md-6 col-lg-4'>";
+            //     echo "<div class='comic-wrapper'>";
+            //     echo $apiCharacters->data->results[0]->series->items[$i]->name;
+            //     echo "</div>";
+            //     echo "</div>";
+            // }   
         ?>
     </div>
-</div>
+</div> -->
