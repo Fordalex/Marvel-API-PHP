@@ -48,30 +48,115 @@
 
 <p>Seach Result: <?php echo $apiCharacters->data->count; ?></p>
 
-<div class="row m-0 p-0">
-    <div class="col-12 col-md-6 col-lg-3">
-        <h6 class="text-secondary">Comic</h6>
+<div class="row m-0 p-0" id="changeableBackground">
+    <div class="col-12 col-md-6 col-lg-3 comic-container card-container">
+        <h6 class='card-title'>Comic</h6>
         <?php 
             $title = $apiComic->data->results[0]->title;
-            $imageUrl = $apiComic->data->results[0]->thumbnail->path . "." . $apiComic->data->results[0]->thumbnail->extension;
             $issueNumber = $apiComic->data->results[0]->issueNumber;
             $modified = $apiComic->data->results[0]->modified;
             $description = $apiComic->data->results[0]->description;
 
-            echo "<h2>$title</h2>";
+            echo "<h2 class='card-title'>$title</h2>";
             echo "<p class='text-secondary m-0'>Date: $modified</p>";
             echo "<p class='text-secondary m-0'>Issue No. $issueNumber</p>";
-            echo "<p class='m-0'>$description</p>";
-            echo "<img src='$imageUrl'>";
+            echo "<p class='m-0 comic-description descirption'>$description</p>";
 
             echo "<button>All Comics</button>";
+        ?>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3 stories-container card-container">
+        <h6 class='card-title'>Stories</h6>
+        <?php 
+            $title = $apiComic->data->results[0]->title;
+            $issueNumber = $apiComic->data->results[0]->issueNumber;
+            $modified = $apiComic->data->results[0]->modified;
+            $description = $apiComic->data->results[0]->description;
+
+            echo "<h2 class='card-title'>$title</h2>";
+            echo "<p class='text-secondary m-0'>Date: $modified</p>";
+            echo "<p class='text-secondary m-0'>Issue No. $issueNumber</p>";
+            echo "<p class='m-0 stories-description card-descirption'>$description</p>";
+
+            echo "<button>All Stories</button>";
+        ?>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3 events-container card-container">
+        <h6 class='card-title'>Events</h6>
+        <?php 
+            $title = $apiComic->data->results[0]->title;
+            $issueNumber = $apiComic->data->results[0]->issueNumber;
+            $modified = $apiComic->data->results[0]->modified;
+            $description = $apiComic->data->results[0]->description;
+
+            echo "<h2 class='card-title'>$title</h2>";
+            echo "<p class='text-secondary m-0'>Date: $modified</p>";
+            echo "<p class='text-secondary m-0'>Issue No. $issueNumber</p>";
+            echo "<p class='m-0 events-description card-descirption'>$description</p>";
+
+            echo "<button>All Events</button>";
+        ?>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3 series-container card-container">
+        <h6 class='card-title'>Series</h6>
+        <?php 
+            $title = $apiComic->data->results[0]->title;
+            $issueNumber = $apiComic->data->results[0]->issueNumber;
+            $modified = $apiComic->data->results[0]->modified;
+            $description = $apiComic->data->results[0]->description;
+
+            echo "<h2 class='card-title'>$title</h2>";
+            echo "<p class='text-secondary m-0'>Date: $modified</p>";
+            echo "<p class='text-secondary m-0'>Issue No. $issueNumber</p>";
+            echo "<p class='m-0 series-description card-descirption'>$description</p>";
+
+            echo "<button>All Series</button>";
         ?>
     </div>
 </div>
     
 
 
+<script>
+// Changed the background image and the description on each card entity.
 
+$('.comic-container').hover( function() {
+    <?php
+        $imageUrl = $apiComic->data->results[0]->thumbnail->path . "." . $apiComic->data->results[0]->thumbnail->extension;
+        $img = 'url("' . "$imageUrl" . '") center center';
+        echo "$('#changeableBackground').css('background', '$img');";
+    ?>
+    $('.comic-description').css('display', 'block');
+});
+
+$('.stories-container').hover( function() {
+    <?php
+        $imageUrl = $apiComic->data->results[0]->thumbnail->path . "." . $apiComic->data->results[0]->thumbnail->extension;
+        $img = 'url("' . "$imageUrl" . '") center center';
+        echo "$('#changeableBackground').css('background', '$img');";
+    ?>
+    $('.stories-description').css('display', 'block');
+});
+
+$('.events-container').hover( function() {
+    <?php
+        $imageUrl = $apiCharacters->data->results[0]->thumbnail->path . "." .  $apiCharacters->data->results[0]->thumbnail->extension;
+        $img = 'url("' . "$imageUrl" . '") center center';
+        echo "$('#changeableBackground').css('background', '$img');";
+    ?>
+    $('.events-description').css('display', 'block');
+});
+
+$('.series-container').hover( function() {
+    <?php
+        $imageUrl = $apiComic->data->results[0]->thumbnail->path . "." . $apiComic->data->results[0]->thumbnail->extension;
+        $img = 'url("' . "$imageUrl" . '") center center';
+        echo "$('#changeableBackground').css('background', '$img');";
+    ?>
+    $('.series-description').css('display', 'block');
+});
+
+</script>
 
 
 

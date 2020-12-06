@@ -5,6 +5,7 @@ a,
 li,
 label {
     font-family: 'Marvel', sans-serif;
+    position: relative;
 }
 
 h1,
@@ -14,19 +15,75 @@ h4,
 h5,
 h6 {
     font-family: 'Oswald', sans-serif;
+    position: relative;
 }
 
 
-/* Character */
+/* Character page */
 
 .character-image {
     width: 100%;
 }
 
 
-/* Comic */
+/* Cards */
 
-.comic-wrapper {
-    border: solid black 1px;
-    border-radius: 5px;
+#changeableBackground {
+    transition: 1s;
+    background-size: cover !important;
+}
+
+.card-container {
+    cursor: default;
+    padding-top: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: solid rgba(255, 255, 255, 0.25) 1px;
+    position: relative;
+    height: 90vh;
+    overflow: hidden;
+}
+
+.card-container .card-title {
+    transition: 0.5s;
+    z-index: 5;
+    color: white;
+}
+
+.card-container:hover .card-title {
+    color: black;
+}
+
+.card-container button {
+    transition: 0.5s;
+    position: absolute;
+    bottom: -35px;
+    right: 15px;
+}
+
+.card-container:hover button {
+    bottom: 15px;
+}
+
+.card-container:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card-container:hover::before {
+    height: 25%;
+}
+
+.card-container::before {
+    transition: 0.5s;
+    content: "";
+    width: 100%;
+    background-color: white;
+    height: 0px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.card-descirption {
+    display: none;
 }
