@@ -9,9 +9,9 @@ $hash = md5($ts . $private_key . $public_key);
 $search = $_GET['search'];
 
 
-$url = "http://gateway.marvel.com/v1/public/characters?ts=$ts&apikey=$public_key&hash=$hash&name=$search";
+$returnedCharacters = "http://gateway.marvel.com/v1/public/characters?ts=$ts&apikey=$public_key&hash=$hash&name=$search";
 
 
  
-$apiResult = file_get_contents( $url );
-$apiResult = json_decode($apiResult);
+$apiCharacters = file_get_contents( $returnedCharacters );
+$apiCharacters = json_decode($apiCharacters);

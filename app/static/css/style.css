@@ -16,6 +16,17 @@ h6 {
     font-family: 'Oswald', sans-serif;
 }
 
+
+/* Character */
+
 .character-image {
     width: 100%;
+}
+
+
+/* Comic */
+
+.comic-wrapper {
+    border: solid black 1px;
+    border-radius: 5px;
 }
