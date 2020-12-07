@@ -61,7 +61,7 @@ h1 {
 
 #changeableBackground {
     transition: 1s;
-    background-size: cover !important;
+    background-size: contain !important;
 }
 
 .card-container {

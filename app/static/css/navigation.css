@@ -1,0 +1,82 @@
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(100, 100, 100);
+    padding: 7px 0;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    padding-top: 2px;
+}
+
+nav ul li {
+    display: inline;
+    color: white;
+    font-size: 1.1em;
+    position: relative;
+    padding: 5px;
+    margin: 0 15px;
+}
+
+nav ul li:hover {
+    cursor: pointer;
+}
+
+nav ul li:after {
+    transition: 0.4s;
+    content: "";
+    background-color: rgba(255, 255, 255, 0);
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 0;
+}
+
+nav ul li:hover:after {
+    cursor: pointer;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.search-container {
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 20px;
+    width: 350px;
+    height: 35px;
+    overflow: hidden;
+    position: relative;
+}
+
+.search-container button {
+    font-size: 17px;
+    border: none;
+    position: absolute;
+    left: -1px;
+    height: 100%;
+}
+
+.search-container input {
+    border: none;
+    font-size: 0.8em;
+    width: 200px;
+    position: absolute;
+    left: 45px;
+    height: 100%;
+    padding: 10px;
+}
+
+.search-container select {
+    border: none;
+    font-size: 0.8em;
+    width: 80px;
+    position: absolute;
+    height: 100%;
+    padding: 10px;
+    right: 0px;
+}

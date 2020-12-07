@@ -1,15 +1,4 @@
-<div class="row m-0 p-3">
-    <div class="col-12 col-md-6 col-lg-4">
-        <form action="?page=character" method="GET">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" name="search" placeholder="Hulk, Thor, Spider-Man">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2" name="page" value="character">Search</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
+
 
 <!-- Character Stats -->
 
@@ -125,8 +114,10 @@
     var stories = 0;
     var events = 0;
     var serires = 0;
+    var loop = 0;
 
     function incrementStats() {
+        loop++;
 
         if (comic < <?php echo $apiCharacters->data->results[0]->comics->available; ?>) {
             comic++;
@@ -145,10 +136,11 @@
             $('#series-number').html(serires);
         }
 
-        setTimeout(function() {
+        if (loop < 50000) {
+            setTimeout(function() {
             incrementStats()
-            addCountStats()
         }, 0.1)  
+        }
     }
 
     incrementStats()
