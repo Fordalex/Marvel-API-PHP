@@ -18,11 +18,42 @@ h6 {
     position: relative;
 }
 
+h1 {
+    font-size: 3.5em;
+}
 
-/* Character page */
+.secondary-color {
+    color: #ed1d24;
+}
+
+.text-bottom {
+    position: absolute;
+    bottom: 7px;
+    right: 0;
+    left: 0;
+}
+
+
+/* stats */
+
+.stats-title {
+    font-size: 1.1em;
+}
+
+.number {
+    font-size: 2.4em;
+    font-weight: 800;
+}
+
+
+/* Character information */
 
 .character-image {
     width: 100%;
+}
+
+.character-info-container {
+    padding: 85px 0px;
 }
 
 
