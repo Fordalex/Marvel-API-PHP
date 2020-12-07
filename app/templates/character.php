@@ -17,28 +17,28 @@
     <div class="col-6 col-md-3 d-flex justify-content-center align-items-center m-0 p-0">
         <div>
             <img src="https://img.icons8.com/color/60/000000/comic-book.png" />
-            <p class="text-center"><b class="number"><?php echo $apiCharacters->data->results[0]->comics->available; ?></b></p>
+            <p class="text-center"><b class="number" id="comic-number"></b></p>
             <p class="text-center stats-title">Comics</p>
         </div>
     </div>
     <div class="col-6 col-md-3 d-flex justify-content-center align-items-center  m-0 p-0">
         <div>
             <img src="https://img.icons8.com/color/60/000000/physics-book.png" />
-            <p class="text-center"><b class="number"><?php echo $apiCharacters->data->results[0]->stories->available; ?></b></p>
+            <p class="text-center"><b class="number" id="stories-number"></b></p>
             <p class="text-center stats-title">Stories</p>
         </div>
     </div>
     <div class="col-6 col-md-3 d-flex justify-content-center align-items-center  m-0 p-0">
         <div>
             <img src="https://img.icons8.com/color/60/000000/red-carpet.png" />
-            <p class="text-center"><b class="number"><?php echo $apiCharacters->data->results[0]->events->available; ?></b></p>
+            <p class="text-center"><b class="number" id="events-number"></b></p>
             <p class="text-center stats-title">Events</p>
         </div>
     </div>
     <div class="col-6 col-md-3 d-flex justify-content-center align-items-center m-0 p-0">
         <div>
             <img src="https://img.icons8.com/color/60/000000/tv.png" />
-            <p class="text-center"><b class="number"><?php echo $apiCharacters->data->results[0]->series->available; ?></b></p>
+            <p class="text-center"><b class="number" id="series-number"></b></p>
             <p class="text-center stats-title">Series</p>
         </div>
     </div>
@@ -120,6 +120,40 @@
 
 
 <script>
+    // Increment the stats section until they reach their total.
+    var comic = 0;
+    var stories = 0;
+    var events = 0;
+    var serires = 0;
+
+    function incrementStats() {
+
+        if (comic < <?php echo $apiCharacters->data->results[0]->comics->available; ?>) {
+            comic++;
+            $('#comic-number').html(comic);
+        }
+        if (stories < <?php echo $apiCharacters->data->results[0]->stories->available; ?>) {
+            stories++;
+            $('#stories-number').html(stories);
+        }
+        if (events < <?php echo $apiCharacters->data->results[0]->events->available; ?>) {
+            events++;
+            $('#events-number').html(events);
+        }
+        if (serires < <?php echo $apiCharacters->data->results[0]->series->available; ?>) {
+            serires++;
+            $('#series-number').html(serires);
+        }
+
+        setTimeout(function() {
+            incrementStats()
+            addCountStats()
+        }, 0.1)  
+    }
+
+    incrementStats()
+
+
     // Changed the background image and the description on each card entity.
     $(document).ready(function() {
         <?php
@@ -156,6 +190,10 @@
         echo "$('#changeableBackground').css('background', '$img');";
         ?>
     });
+
+
+
+
 </script>
 
 

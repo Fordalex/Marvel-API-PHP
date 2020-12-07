@@ -108,7 +108,7 @@ h1 {
 }
 
 .card-container:hover::before {
-    height: 23%;
+    height: 35%;
 }
 
 .card-container::before {
