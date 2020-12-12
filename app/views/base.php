@@ -16,8 +16,9 @@
 
 <body>
 
-    <nav>
-        <ul>
+    <nav class="d-flex justify-content-between px-2">
+        <div>Marvel</div>
+        <ul class="container-fluid m-0 p-0 d-flex justify-content-center">
             <li>Home</li>
             <li>Character</li>
             <li>Comics</li>
@@ -38,9 +39,7 @@
 </div>
         </form>
     </nav>
-
-    <h3><?php echo $headerTitle; ?></h3>
-
+    
     <main>
         <?php
         include $main_content;
@@ -92,8 +91,6 @@
             </div>
         </div>
     </footer>
-
-
 
 </body>
 

@@ -1,38 +1,3 @@
-
-
-<!-- Character Stats -->
-
-<div class="row my-4 py-4 px-0 mx-0">
-    <div class="col-6 col-md-3 d-flex justify-content-center align-items-center m-0 p-0">
-        <div>
-            <img src="https://img.icons8.com/color/60/000000/comic-book.png" />
-            <p class="text-center"><b class="number" id="comic-number"></b></p>
-            <p class="text-center stats-title">Comics</p>
-        </div>
-    </div>
-    <div class="col-6 col-md-3 d-flex justify-content-center align-items-center  m-0 p-0">
-        <div>
-            <img src="https://img.icons8.com/color/60/000000/physics-book.png" />
-            <p class="text-center"><b class="number" id="stories-number"></b></p>
-            <p class="text-center stats-title">Stories</p>
-        </div>
-    </div>
-    <div class="col-6 col-md-3 d-flex justify-content-center align-items-center  m-0 p-0">
-        <div>
-            <img src="https://img.icons8.com/color/60/000000/red-carpet.png" />
-            <p class="text-center"><b class="number" id="events-number"></b></p>
-            <p class="text-center stats-title">Events</p>
-        </div>
-    </div>
-    <div class="col-6 col-md-3 d-flex justify-content-center align-items-center m-0 p-0">
-        <div>
-            <img src="https://img.icons8.com/color/60/000000/tv.png" />
-            <p class="text-center"><b class="number" id="series-number"></b></p>
-            <p class="text-center stats-title">Series</p>
-        </div>
-    </div>
-</div>
-
 <!-- Character information -->
 <div class="row justify-content-center px-0 mx-0 bg-light character-info-container">
     <div class="col-12 col-md-6 col-lg-5">
@@ -42,14 +7,63 @@
         ?>
     </div>
     <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-center flex-column bg-white">
-        <h5 class="secondary-color">Character</h5>
+        <h5 class="secondary-color mt-3">Character</h5>
         <h1><?php echo $apiCharacters->data->results[0]->name; ?></h1>
-        <p><?php echo $apiCharacters->data->results[0]->description; ?></p>
+        <p class="mb-5"><?php echo $apiCharacters->data->results[0]->description; ?></p>
         <small class="text-center text-bottom"><?php echo $apiCharacters->attributionHTML; ?></small>
     </div>
 
 </div>
 
+<!-- Character Stats -->
+
+<div class="row my-4 py-4 px-0 mx-0">
+    <div class="col-6 col-md-3 d-flex justify-content-center align-items-center m-0 p-0">
+        <div>
+            <img src="https://img.icons8.com/color/60/000000/comic-book.png" />
+            <p class="text-center m-0"><b class="number" id="comic-number"></b></p>
+            <p class="text-center stats-title">Comics</p>
+        </div>
+    </div>
+    <div class="col-6 col-md-3 d-flex justify-content-center align-items-center  m-0 p-0">
+        <div>
+            <img src="https://img.icons8.com/color/60/000000/physics-book.png" />
+            <p class="text-center m-0"><b class="number" id="stories-number"></b></p>
+            <p class="text-center stats-title">Stories</p>
+        </div>
+    </div>
+    <div class="col-6 col-md-3 d-flex justify-content-center align-items-center  m-0 p-0">
+        <div>
+            <img src="https://img.icons8.com/color/60/000000/red-carpet.png" />
+            <p class="text-center m-0"><b class="number" id="events-number"></b></p>
+            <p class="text-center stats-title">Events</p>
+        </div>
+    </div>
+    <div class="col-6 col-md-3 d-flex justify-content-center align-items-center m-0 p-0">
+        <div>
+            <img src="https://img.icons8.com/color/60/000000/tv.png" />
+            <p class="text-center m-0"><b class="number" id="series-number"></b></p>
+            <p class="text-center stats-title">Series</p>
+        </div>
+    </div>
+</div>
+
+<!-- another section -->
+
+<div class="row m-0  justify-content-center bg-light fd-section">
+    <div class="col-4 d-flex flex-column justify-content-center">
+        <h6>About The Creator</h6>
+        <h2>Fordsdevelopment</h2>
+        <p>Creating static website and fullstack application for any purpose full bespoke code using frontend languages such as HTML/CSS/JS and backend using Python/PHP, connection to API's, CDNs and much more to create powerful and noticeable applications/sites.</p>
+        <a href="www.fordsdevelopment.co.uk" class="btn btn-dark">Vist Fordsdevelopment</a>
+    </div>
+    <div class="col-4">
+        <div class="fd-container">
+            <div class="fords-img">
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- View more Comics, stories, events and series section -->
 
@@ -110,40 +124,66 @@
 
 <script>
     // Increment the stats section until they reach their total.
+    const comicApiValue = <?php echo $apiCharacters->data->results[0]->comics->available; ?>;
+    const storiesApiValue = <?php echo $apiCharacters->data->results[0]->stories->available; ?>;
+    const eventsApiValue = <?php echo $apiCharacters->data->results[0]->events->available; ?>;
+    const seriesApiValue = <?php echo $apiCharacters->data->results[0]->series->available; ?>;
     var comic = 0;
     var stories = 0;
     var events = 0;
-    var serires = 0;
+    var series = 0;
     var loop = 0;
+    var loopMax = 400;
 
-    function incrementStats() {
+    function incrementStatValue(currentValue, EndValue) {
+        return currentValue += EndValue / loopMax;
+    }
+
+    function displayStatOnPage() {
         loop++;
+        comic = incrementStatValue(comic, comicApiValue);
+        stories = incrementStatValue(stories, storiesApiValue);
+        events = incrementStatValue(events, eventsApiValue);
+        series = incrementStatValue(series, seriesApiValue);
 
-        if (comic < <?php echo $apiCharacters->data->results[0]->comics->available; ?>) {
-            comic++;
-            $('#comic-number').html(comic);
-        }
-        if (stories < <?php echo $apiCharacters->data->results[0]->stories->available; ?>) {
-            stories++;
-            $('#stories-number').html(stories);
-        }
-        if (events < <?php echo $apiCharacters->data->results[0]->events->available; ?>) {
-            events++;
-            $('#events-number').html(events);
-        }
-        if (serires < <?php echo $apiCharacters->data->results[0]->series->available; ?>) {
-            serires++;
-            $('#series-number').html(serires);
-        }
+        $('#comic-number').html(Math.floor(comic));
+        $('#stories-number').html(Math.floor(stories));
+        $('#events-number').html(Math.floor(events));
+        $('#series-number').html(Math.floor(series));
 
-        if (loop < 50000) {
+        if (loop != loopMax) {
             setTimeout(function() {
-            incrementStats()
-        }, 0.1)  
+
+                displayStatOnPage()
+            }, 0.1000)
         }
     }
 
-    incrementStats()
+    var countTriggered = false;
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 150 && !countTriggered) {
+            countTriggered = true;
+            displayStatOnPage()
+        }
+    });
+
+
+    // Preload images
+    var images = [];
+
+    function preload() {
+        for (var i = 0; i < arguments.length; i++) {
+            images[i] = new Image();
+            images[i].src = preload.arguments[i];
+        }
+    }
+
+    //-- usage --//
+    preload(
+        "<?php echo $apiComic->data->results[0]->thumbnail->path . "." . $apiComic->data->results[0]->thumbnail->extension; ?>",
+        "<?php echo $apiEvent->data->results[0]->thumbnail->path . "." . $apiEvent->data->results[0]->thumbnail->extension; ?>",
+        "<?php echo $apiSeries->data->results[0]->thumbnail->path . "." . $apiComic->data->results[0]->thumbnail->extension; ?>"
+    )
 
 
     // Changed the background image and the description on each card entity.
@@ -182,10 +222,6 @@
         echo "$('#changeableBackground').css('background', '$img');";
         ?>
     });
-
-
-
-
 </script>
 
 
