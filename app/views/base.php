@@ -19,12 +19,12 @@
     <nav class="d-flex justify-content-between px-2">
         <div>Marvel</div>
         <ul class="container-fluid m-0 p-0 d-flex justify-content-center">
-            <li>Home</li>
-            <li>Character</li>
-            <li>Comics</li>
-            <li>Stories</li>
-            <li>Events</li>
-            <li>Series</li>
+            <li><a href="?page=home">Home</a></li>
+            <li><a href="?page=Character">Character</a></li>
+            <li><a href="?page=Comics">Comics</a></li>
+            <li><a href="?page=Stories">Stories</a></li>
+            <li><a href="?page=Events">Events</a></li>
+            <li><a href="?page=Series">Series</a></li>
         </ul>
         <form action="?page=character" method="GET" class="search-container">
                 <button class="btn btn-outline-danger" type="submit" id="button-addon2" name="page" value="character"><i class="fas fa-search"></i></button>

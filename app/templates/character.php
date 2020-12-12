@@ -48,26 +48,12 @@
     </div>
 </div>
 
-<!-- another section -->
-
-<div class="row m-0  justify-content-center bg-light fd-section">
-    <div class="col-4 d-flex flex-column justify-content-center">
-        <h6>About The Creator</h6>
-        <h2>Fordsdevelopment</h2>
-        <p>Creating static website and fullstack application for any purpose full bespoke code using frontend languages such as HTML/CSS/JS and backend using Python/PHP, connection to API's, CDNs and much more to create powerful and noticeable applications/sites.</p>
-        <a href="www.fordsdevelopment.co.uk" class="btn btn-dark">Vist Fordsdevelopment</a>
-    </div>
-    <div class="col-4">
-        <div class="fd-container">
-            <div class="fords-img">
-            </div>
-        </div>
-    </div>
-</div>
+<!-- fd ad -->
+<?php include_once "app/includes/fd_ad.html" ?>
 
 <!-- View more Comics, stories, events and series section -->
 
-<div class="row m-0 p-0" id="changeableBackground">
+<div class="row m-0 p-0 mb-5" id="changeableBackground">
     <div class="col-12 col-md-6 col-lg-3 comic-container card-container">
         <h6 class='card-title'>Comic</h6>
         <?php
