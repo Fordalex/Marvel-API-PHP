@@ -63,7 +63,7 @@
         echo "<h2 class='card-title'>$title</h2>";
         echo "<p class='text-secondary m-0 card-title'>Date: $modified</p>";
 
-        echo "<button>All Comics</button>";
+        echo "<button><a href='?page=Comics'>All Comics</a></button>";
         ?>
     </div>
     <div class="col-12 col-md-6 col-lg-3 stories-container card-container">

@@ -149,6 +149,12 @@ h1 {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    height: 300px;
+    height: 400px;
     width: 100%;
+}
+
+.fd-video-container {
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
 }
