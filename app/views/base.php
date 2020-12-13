@@ -20,26 +20,41 @@
         <div>Marvel</div>
         <ul class="container-fluid m-0 p-0 d-flex justify-content-center">
             <li><a href="?page=home">Home</a></li>
-            <li><a href="?page=Character">Character</a></li>
-            <li><a href="?page=Comics">Comics</a></li>
-            <li><a href="?page=Stories">Stories</a></li>
-            <li><a href="?page=Events">Events</a></li>
-            <li><a href="?page=Series">Series</a></li>
+            <?php
+            if (isset($_SESSION['search'])) {
+                echo '<li><a href="?page=Character">Character</a></li>';
+                echo '<li><a href="?page=Comics">Comics</a></li>';
+                echo '<li><a href="?page=Stories">Stories</a></li>';
+                echo '<li><a href="?page=Events">Events</a></li>';
+                echo '<li><a href="?page=Series">Series</a></li>';
+            } else {
+                echo '<li class="nav-link disabled mx-0">Character</li>';
+                echo '<li class="nav-link disabled mx-0">Comics</li>';
+                echo '<li class="nav-link disabled mx-0">Stories</li>';
+                echo '<li class="nav-link disabled mx-0">Events</li>';
+                echo '<li class="nav-link disabled mx-0">Series</li>';
+            }
+            ?>
         </ul>
-        <form action="?page=character" method="GET" class="search-container">
-                <button class="btn btn-outline-danger" type="submit" id="button-addon2" name="page" value="character"><i class="fas fa-search"></i></button>
-                    <input type="text" name="search" placeholder="Hulk, Avengers, Vision...">
-                    <select>
-                        <option selected>Character</option>
-                        <option value="1">Comics</option>
-                        <option value="2">Stories</option>
-                        <option value="3">Events</option>
-                        <option value="3">Series</option>
-                    </select>
-</div>
-        </form>
+        <?php 
+            if (isset($_SESSION['search'])) {  
+                echo "
+            <form action='app/form/set_search.php' method='GET' class='search-container'>
+                <button class='btn btn-outline-danger' type='submit' id='button-addon2' name='page' value='character'><i class='fas fa-search'></i></button>
+                <input type='text' name='search' placeholder='Hulk, Avengers, Vision...'>
+                <select>
+                    <option selected>Character</option>
+                    <option value='1'>Comics</option>
+                    <option value='2'>Stories</option>
+                    <option value='3'>Events</option>
+                    <option value='3'>Series</option>
+                </select>
+            </form>
+            ";
+            }
+        ?>
     </nav>
-    
+
     <main>
         <?php
         include $main_content;

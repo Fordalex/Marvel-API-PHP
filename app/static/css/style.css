@@ -129,6 +129,9 @@ h1 {
 
 .fd-section {
     padding: 65px 0;
+    border-top: solid 3px #7a7ab3;
+    border-bottom: solid 3px #7a7ab3;
+    background-color: #f3f3f3;
 }
 
 .fd-container {
